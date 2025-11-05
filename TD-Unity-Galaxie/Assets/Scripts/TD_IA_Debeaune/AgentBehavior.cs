@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -7,6 +8,8 @@ public class AgentBehavior : MonoBehaviour
     DestinationData _destinationData;
 
     private NavMeshAgent _navMeshAgent = null;
+
+    private bool _canSelectDestination = true;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,10 +23,21 @@ public class AgentBehavior : MonoBehaviour
     {
         _navMeshAgent.destination = _destinationData.currentDestination;
 
-        if (_navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance)
+        if (
+            _navMeshAgent.remainingDistance < _navMeshAgent.stoppingDistance
+            && _canSelectDestination
+        )
         {
             _destinationData.SetDestination();
+            _canSelectDestination = false;
+            StartCoroutine(DelayDestinationActivation());
         }
+    }
+
+    private IEnumerator DelayDestinationActivation()
+    {
+        yield return new WaitForSeconds(0.1f);
+        _canSelectDestination = true;
     }
 
     void OnDrawGizmosSelected()

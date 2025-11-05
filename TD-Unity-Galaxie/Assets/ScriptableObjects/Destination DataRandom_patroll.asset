@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68037bd27c1f6a4884c1e60a01be6d1, type: 3}
-  m_Name: Destination Data_patroll
+  m_Script: {fileID: 11500000, guid: c85cfcc8230801d4c9e0807752af7cb0, type: 3}
+  m_Name: Destination DataRandom_patroll
   m_EditorClassIdentifier: 
   currentDestination: {x: 31, y: 0, z: -10}
   _destinations:
