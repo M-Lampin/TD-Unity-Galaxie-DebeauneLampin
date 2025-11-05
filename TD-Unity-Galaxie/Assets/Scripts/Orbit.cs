@@ -11,6 +11,7 @@ public class Orbits : MonoBehaviour
     {
         if (pivot != null)
         {
+
             // orbite autour du pivot (axe Y)
             transform.RotateAround(pivot.position, Vector3.up, angularSpeed * Time.deltaTime);
         }
