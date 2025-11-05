@@ -11,9 +11,13 @@ public class DestinationDataRandom : DestinationData
     [SerializeField]
     public override void SetDestination()
     {
-        int currentIndex = _index;
-        _index = Random.Range(0, _destinations.Length);
         Debug.Log("nouvelle position random");
+        int currentIndex = _index;
+
+        while (_index == currentIndex)
+        {
+            _index = Random.Range(0, _destinations.Length);
+        }
 
         currentDestination = _destinations[_index];
     }
